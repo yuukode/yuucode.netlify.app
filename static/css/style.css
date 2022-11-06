@@ -66,11 +66,11 @@ body{
 .jum-note a{
     font-weight: bold;
     font-size: 20px;
-    background-color: #404b5a;
+    background-color: #ffffff;
     padding: 10px;
     border-radius: 5px;
     text-decoration: none;
-    color: #ffffff;
+    color: #0798ec;
     animation: appear 4s;
 }
 

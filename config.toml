@@ -1,6 +1,6 @@
-baseURL = 'https://notewhy.my.id'
+baseURL = 'https://yuucode.netlify.app'
 languageCode = 'id-id'
-title = 'NoteWhy'
+title = 'yuucode'
 
 enableEmoji = true
 pluralizelisttitles = false
