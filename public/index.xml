@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>NoteWhy</title>
-    <link>https://notewhy.my.id/</link>
-    <description>Recent content on NoteWhy</description>
+    <title>yuucode</title>
+    <link>https://yuucode.netlify.app/</link>
+    <description>Recent content on yuucode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>id-id</language>
-    <lastBuildDate>Sat, 05 Nov 2022 22:24:19 +0700</lastBuildDate><atom:link href="https://notewhy.my.id/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Nov 2022 22:24:19 +0700</lastBuildDate><atom:link href="https://yuucode.netlify.app/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Install Debian 10 Di Virtualbox</title>
-      <link>https://notewhy.my.id/debian/install-debian-10-di-virtualbox/</link>
+      <link>https://yuucode.netlify.app/debian/install-debian-10-di-virtualbox/</link>
       <pubDate>Sat, 05 Nov 2022 22:24:19 +0700</pubDate>
       
-      <guid>https://notewhy.my.id/debian/install-debian-10-di-virtualbox/</guid>
+      <guid>https://yuucode.netlify.app/debian/install-debian-10-di-virtualbox/</guid>
       <description></description>
     </item>
     
     <item>
       <title>About</title>
-      <link>https://notewhy.my.id/about/</link>
+      <link>https://yuucode.netlify.app/about/</link>
       <pubDate>Sat, 05 Nov 2022 14:11:14 +0700</pubDate>
       
-      <guid>https://notewhy.my.id/about/</guid>
-      <description>Hai 👋, Selamat datang di NoteWhy.
+      <guid>https://yuucode.netlify.app/about/</guid>
+      <description>Hai 👋, Selamat datang di yuucode.
 Terima kasih sudah membuka halaman About website ini. Sesuai dengan judul, di halaman ini saya akan menjelaskan tentang website ini.
 Gimana sih ceritanya awal website ini dibuat?
 Perkenalkan saya adalah seorang siswa SMK (Sekolah Menengah Kejuruan) bidang Teknik Komputer dan Jaringan.
