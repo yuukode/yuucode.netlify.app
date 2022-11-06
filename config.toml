@@ -1,0 +1,6 @@
+baseURL = 'https://notewhy.my.id'
+languageCode = 'id-id'
+title = 'NoteWhy'
+
+enableEmoji = true
+pluralizelisttitles = false

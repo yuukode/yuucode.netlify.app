@@ -1,0 +1,15 @@
+{{ define "main" }}
+    <h1 class="title-content-list">{{ .Title }}</h1>
+    <div class="content-newest">
+        {{ range .Pages }}
+            <a href="{{ .Permalink }}">
+                <div>
+                    <span class="title-content">{{ .Title }}</span>
+                    <br>
+                    <br>
+                    <span class="date-content">Dibuat pada {{.Date.Format "2006-01-02"}}</span>
+                </div>
+            </a>
+        {{ end }}
+    </div>
+{{ end }}

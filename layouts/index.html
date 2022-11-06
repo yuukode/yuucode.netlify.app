@@ -1,0 +1,64 @@
+{{ define "main" }}
+{{- partial "jumbotron.html" . -}}
+<h2 class="title-content-home">Catatan Terbaru</h2>
+
+<div class="content-newest">
+        {{ range first 5 .Site.RegularPages }}
+            <a href="{{ .Permalink }}">
+                <div>
+                    <span class="title-content">{{ .Title }}</span>
+                    <br>
+                    <br>
+                    <span class="date-content">Dibuat pada {{.Date.Format "2006-01-02"}}</span>
+                </div>
+            </a>
+        {{ end }}
+</div>
+
+<div id="note-list">
+    <h2 class="note-title">Daftar Catatan</h2>
+    <div class="note-list-parent">
+        <a href="https://notewhy.my.id/debian/">
+        <div class="note-list-child">
+            <div class="wrap-note">
+                <img src="https://img.icons8.com/color/344/debian.png" alt="Icon Debian" />
+            </div>
+            <p>Debian</p>
+        </div>
+        </a>
+        <a href="https://notewhy.my.id/ubuntu/" >
+        <div class="note-list-child">
+            <div class="wrap-note">
+                <img src="https://img.icons8.com/color/344/ubuntu--v1.png" alt="Icon Ubuntu" />
+            </div>
+            <p>Ubuntu</p>
+        </div>
+        </a>
+        <a href="https://notewhy.my.id/networking/" >
+        <div class="note-list-child">
+            <div class="wrap-note">
+                <img src="https://img.icons8.com/clouds/344/web-globe.png" alt="Icon Globe Network" />
+            </div>
+            <p>Jaringan</p>
+        </div>
+        </a>
+        <a href="https://notewhy.my.id/windows-server/" >
+            <div class="note-list-child">
+            <div class="wrap-note">
+                <img src="https://img.icons8.com/color/512/windows-10.png" alt="Icon Windows" />
+            </div>
+            <p>Windows Server</p>
+        </div>
+        </a>
+        <a href="https://notewhy.my.id/other/" >
+        <div class="note-list-child">
+            <div class="wrap-note">
+                <img src="https://img.icons8.com/external-inkubators-basic-outline-inkubators/344/external-other-user-interface-inkubators-basic-outline-inkubators.png" alt="Icon Other" />
+            </div>
+            <p>Lainnya</p>
+        </div>
+        </a>
+    </div>
+</div>
+
+{{ end }}
