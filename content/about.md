@@ -4,7 +4,7 @@ date: 2022-11-05T14:11:14+07:00
 draft: false
 ---
 
-Hai :wave:, Selamat datang di NoteWhy.\
+Hai :wave:, Selamat datang di yuucode.\
 \
 Terima kasih sudah membuka halaman About website ini. Sesuai dengan judul, di halaman ini saya akan menjelaskan tentang website ini.\
 \
@@ -19,7 +19,7 @@ Saya harus mengetik ulang yang dipelajari dari materi yang diberikan, lalu lapor
 \
 Dan terkadang saya belajar selain dari materi yang diberikan, salah satunya belajar membuat website ini.\
 \
-Jadi website ini berisi tentang catatan dari hasil tugas, belajar, dan latihan yang saya lakukan, untuk diri saya sendiri dan dapat dibaca oleh orang lain yang membutuhkannya (jika ada) :sweat_smile:.\
+Jadi website ini berisi tentang catatan dari hasil tugas, belajar, dan latihan yang saya lakukan, untuk diri saya sendiri atau orang lain yang membutuhkannya (jika ada) :sweat_smile:.\
 \
 \
 Sedikit info saja, saya menggunakan framework SSG (Static Site Generator) Hugo untuk membuat website ini.\

@@ -2,17 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/</loc>
-    <lastmod>2022-10-08T04:48:29+07:00</lastmod>
+    <loc>https://notewhy.my.id/debian/</loc>
+    <lastmod>2022-11-05T22:24:19+07:00</lastmod>
   </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2022-10-08T04:48:29+07:00</lastmod>
+    <loc>https://notewhy.my.id/debian/install-debian-10-di-virtualbox/</loc>
+    <lastmod>2022-11-05T22:24:19+07:00</lastmod>
   </url><url>
-    <loc>/posts/tes123/</loc>
-    <lastmod>2022-10-08T04:48:29+07:00</lastmod>
+    <loc>https://notewhy.my.id/</loc>
+    <lastmod>2022-11-05T22:24:19+07:00</lastmod>
   </url><url>
-    <loc>/categories/</loc>
+    <loc>https://notewhy.my.id/about/</loc>
+    <lastmod>2022-11-05T14:11:14+07:00</lastmod>
   </url><url>
-    <loc>/tags/</loc>
+    <loc>https://notewhy.my.id/categories/</loc>
+  </url><url>
+    <loc>https://notewhy.my.id/tags/</loc>
   </url>
 </urlset>

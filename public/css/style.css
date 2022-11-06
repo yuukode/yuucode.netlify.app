@@ -1,31 +1,110 @@
+
 *{
     margin: 0;
     padding: 0;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    font-family: sans-serif;
 }
-*::-webkit-scrollbar {
+
+/*WITHOUT SCROLL*/
+html::-webkit-scrollbar {
     display: none;
 }
+
+/*CUSTOM SCROLLBAR HORIZONTAL*/
+div::-webkit-scrollbar,
+pre::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+div::-webkit-scrollbar-track, 
+pre::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+div::-webkit-scrollbar-thumb,
+pre::-webkit-scrollbar-thumb {
+  background: #0798ec;
+  border-radius: 10px;
+}
+
+/*SCROLL SMOOTH ANCHOR*/
+html {
+    scroll-behavior: smooth;
+}
+
 body{
     background: #ffffff;
 }
 
-header{
+
+
+/*JUMBOTRON*/ 
+.jumbotron{
     background-color: #0798ec;
     height: 100vh;
 }
 
-.title-home{
+.title-home {
+    justify-content: center;
+    display: flex;
     text-align: center;
-    padding-top: 40vh;
+    padding-top: 35vh;
     color: #ffffff;
     font-size: 6em;
-    font-weight: 700;
-    font-family: Arial, Helvetica;
+    font-weight: 700;  
+    animation: moving 2s;
+}
+
+.jum-note {
+    text-align: center;
+    margin-top: 3vh;
+    animation: fix 1s;
+}
+
+.jum-note a{
+    font-weight: bold;
+    font-size: 20px;
+    background-color: #404b5a;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #ffffff;
+    animation: appear 4s;
+}
+
+@keyframes fix {
+    0%{ margin-top: -7vh;}
+    25%{margin-top: -7vh;}
+    50%{margin-top: -7vh;}
+    100%{margin-top: 3vh;}
+}
+
+@keyframes appear {
+    0%{opacity: 0;}
+    30%{opacity: 0;}
+    50%{opacity:100;}
+    100%{opacity:100;}
+}
+
+@keyframes moving {
+    0%{padding-top: 45vh;}
+    25%{padding-top: 45vh;}
+    50%{padding-top:35vh}
+    100%{padding-top: 35vh;}
+}
+
+/*NAVBAR*/
+.wrap-nav{
+    position: fixed;
+    width: 100%;
+    height: 65px;
+    background-color: #0798ec;
 }
 
 .icon-nav{
+    margin-top: 7.5px;
     padding-top: 14px;
     position: fixed;
     left: 10%;
@@ -36,7 +115,6 @@ header{
     text-align: center;
     text-decoration: none;
     color: #ffffff;
-    font-family: Arial, Helvetica;
     font-weight: 700;
     font-size: 20px;
 }
@@ -50,6 +128,7 @@ header{
 }
 
 .menu-nav{
+    margin-top: 7.5px;
     padding-top: 14px;
     position: fixed;
     right: 5%;
@@ -64,7 +143,7 @@ header{
     text-align: center;
     text-decoration: none;
     color: #ffffff;
-    font-family: Arial, Helvetica;
+     
     font-weight: 700;
     font-size: 20px;
 }
@@ -87,32 +166,236 @@ header{
     display: none;
 }
 
+
+/*CONTENT HOME*/
+.title-content-list{
+    padding-top: 100px;
+    margin-left: 15%;
+     
+}
+
+.title-content-home{
+    margin-bottom: 35px;
+    margin-top: 50px;
+    font-size: 30px;
+    text-align: center;
+     
+}
+
+.content-newest a div{
+    color: #000000; 
+    text-decoration: none;
+    padding: 30px;
+    box-shadow: 0 0 5px #cccccc;
+    width: 70%;
+    display: inline-block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.content-newest a div:hover{
+    background-color: #f9f9f9;
+}
+
+.content-newest a div:active{
+    background-color: #f9f9f9;
+}
+
+.content-newest {
+    text-align: center;
+}
+
+.title-content{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.date-content{
+    color: grey;
+    font-size: 15px;
+}
+
+.note-title{
+    margin-top: 100px;
+    font-size: 30px;
+    text-align: center;
+     
+}
+
+.note-list-parent{
+    text-align: center;
+}
+
+.note-list-parent a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.note-list-child{
+    margin-top: 50px;
+    display: inline-block;
+    margin-right: 30px;
+    margin-left: 30px;
+    font-weight: bold;
+    padding: 25px;
+    font-size: 20px;
+    box-shadow: 0 0 5px #cccccc;
+    width: 30%;
+}
+
+.note-list-child:hover{
+    background-color: #f9f9f9;
+}
+
+.note-list-child:active{
+    background-color: #f9f9f9;
+}
+
+.wrap-note {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40px;
+    font-size: 10px;
+    color: grey;
+}
+
+/*FOOTER*/
+footer{
+    margin-top: 100px;
+    background-color: #0798ec;
+}
+
+.copy-footer{    
+    text-align: center;
+     
+    color: #ffffff;
+    padding-bottom: 5px;
+}
+
+.icon-footer{
+    padding-top: 5px;
+    text-align: center;
+     
+    font-weight: 700;
+    font-size: 30px;
+    color: #ffffff;
+}
+
+.icon-social{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    height: 35px;
+}
+
+.icon-social svg:hover {
+    width:30px;
+    height: 30px;
+}
+
+.icon-social a{
+    text-decoration: none;
+    margin: 5px;
+}
+
+/*ARTICLE*/
+.title-article{
+    padding-top: 100px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-size: 50px;
+     
+}
+
+article{
+    font-weight: 400;
+    font-size: 20px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    width: 55%;
+}
+
+hr {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    background-color: #dddddd;
+    height: 1px;
+    border: 0;
+}
+
+.date-article {
+    font-size: 15px;
+    text-align: center;
+    color: grey;
+}
+
+#content img{
+    width: 100%;
+}
+
+.highlight div,
+.highlight pre {
+    overflow: auto;
+    white-space: nowrap;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #173549 !important;
+}
+
+/*NOT-FOUND*/
+.not-found-title{
+    width: 250px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 140px;
+}
+
+.not-found-content{
+    color: #444b54;
+    width: 50%;
+    margin-left:auto;
+    margin-right: auto;
+    text-align: center;
+    padding-bottom: 0px;
+}
+
+
+/* SCREEN MOBILE*/
 @media screen and (max-width: 700px){
+
+    /*JUMBOTRON*/
+    .text-drop {
+        font-size: 5em;
+    }
+
+    /*NAVBAR*/
+    .wrap-nav{
+        display: none;
+    }
+
     .icon-nav{
         display: none;
     }
     
-    .menu-btn{
+    .menu-btn{  /*LABEL TO CHECKBOX*/
         text-align: center;
-        height: 50px;
-        width: 50px;
-        right: 50px;
+        height: 60px;
+        width: 60px;
+        right: 20px;
         top:20px;
         z-index: 2;
         position: fixed;
-        background-color: #0798ec;
         border-radius: 50%;
         display: block;
         transition: all 0.3s ease-in-out;
 
     }
-
-    .menu-toggle-nav:checked ~ .menu-btn{
-        background-color: #0798ec;
-        transition: all 0.3s ease-in-out;
-
-    }
-
+    
     .menu-toggle-nav{
         display: none;
     }
@@ -122,21 +405,24 @@ header{
     }
     
     .menu-nav{
+        margin-top: 0;
         background-color: #ffffff;
         width: 100%;
         height: 100vh;
         right:0;
         top:0;
         position:fixed;
-        clip-path: circle(30px at calc(95% - 45px) 45px);
+        clip-path: circle(20px at calc(100% - 45px) 45px);
         transition: all 0.3s ease-in-out
     }
 
-    .menu-nav ul{
+    .menu-nav ul {
         text-align: center;
+        display: block;
+        width: 100%;
+        padding-top: 100px;
+        margin: auto;
         position: absolute;
-        top: 13%;
-        left: 33%;
     }
 
     .menu-nav ul li{
@@ -145,9 +431,21 @@ header{
         margin-top: 40px;
 
     }
-
+    
+    @keyframes shake {
+        0% { transform: rotate(0); }
+        15% { transform: rotate(5deg); }
+        30% { transform: rotate(-5deg); }
+        45% { transform: rotate(4deg); }
+        60% { transform: rotate(-4deg); }
+        75% { transform: rotate(2deg); }
+        85% { transform: rotate(-2deg); }
+        92% { transform: rotate(1deg); }
+        100% { transform: rotate(0); }
+    }
+  
     .menu-nav ul li a{
-        font-size: 50px;
+        font-size: 60px;
         color: #0798ec;
     }
      
@@ -159,5 +457,115 @@ header{
     .menu-nav ul li a:active{
         color: #ffffff;
         background-color: #0798ec;
+    }
+
+
+    /*BURGER MENU*/
+    .burger-menu-nav{
+        background-color: #ffffff;
+        width: 60px;
+        height: 60px;
+        position: fixed;
+        border: 6px #0798ec solid;
+        border-radius: 50%;
+        right: 20px;
+        top: 20px;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .burger-menu-nav .line{
+        transition: all 0.2s ease-in-out;
+    }
+
+    .line{
+        right: 38.5px;
+        top: 45px;
+    }
+
+    .line1{
+        position: fixed;
+        border-radius: 15%;
+        width: 35px;
+        height: 6px;
+        background-color: #0798ec;
+    }
+
+    .line2{
+        margin-top: 15px;
+        border-radius: 15%;
+        position: fixed;
+        width: 35px;
+        height: 6px;
+        background-color: #0798ec;
+    }
+
+    .menu-toggle-nav:checked ~ .burger-menu-nav{
+        background-color: #0798ec;
+        border: 6px #ffffff solid;
+    }
+
+    .menu-toggle-nav:checked ~ .burger-menu-nav .line{
+        right: 36px;
+        top: 43.5px;
+    }
+
+    .menu-toggle-nav:checked ~ .burger-menu-nav .line1{
+        background-color: #ffffff;
+        transform: rotate(45deg);
+        transform-origin: 15%;
+    }
+
+    .menu-toggle-nav:checked ~ .burger-menu-nav .line2{
+        background-color: #ffffff;
+        transform: rotate(-45deg);
+        transform-origin: 25%;
+    }
+    
+    /*CONTENT HOME*/
+    .content-newest a div{
+        width: 80%;
+    }
+
+    /*ARTICLE*/
+    article{
+        width: 85%;
+        font-size: 17px;
+    }
+
+    .title-article {
+        padding-top: 50px;
+    }
+
+    /*NOT-FOUND*/
+    .not-found-title{
+        width: 150px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 95px;
+    }
+    .not-found-content{
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .note-list-child{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .note-list-child{
+        width: 80%;
+        margin-top: 30px;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .title-home {
+        font-size: 4.5em;
     }
 }
