@@ -4,6 +4,8 @@ date: 2022-11-05T14:11:14+07:00
 draft: false
 ---
 
+![About](/img/about.png "About")
+
 Hai :wave:, Selamat datang di yuucode.\
 \
 Terima kasih sudah membuka halaman About website ini. Sesuai dengan judul, di halaman ini saya akan menjelaskan tentang website ini.\
