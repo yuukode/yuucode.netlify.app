@@ -269,6 +269,9 @@ body{
     font-size: 10px;
     color: grey;
 }
+#content img {
+    width: 100%;
+}
 
 /*FOOTER*/
 footer{
