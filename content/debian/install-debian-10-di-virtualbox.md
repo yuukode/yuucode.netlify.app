@@ -9,7 +9,7 @@ Saat ini terdapat 3 jenis sistem operasi komputer yang banyak dipakai, yaitu Win
 \
 Sesuai judul maka saya hanya membahas tentang Linux Debian.  
 \
-Apa itu Linux Debian :question: Debian adalah sistem operasi yang menggunakan Linux sebagai basisnya.
+Apa itu Linux Debian:question: Debian adalah sistem operasi yang menggunakan Linux sebagai basisnya.
 Debian termasuk salah satu jenis sistem operasi Linux yang cukup banyak digunakan.  
 \
 Debian sebenarnya bisa diinstall tidak hanya di Virtualbox saja.
