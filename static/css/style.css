@@ -5,10 +5,22 @@
     font-family: sans-serif;
 }
 
-/*WITHOUT SCROLL*/
-html::-webkit-scrollbar {
+/* CUSTOM SCROLLBAR VERTICAL */
+html::-webkit-scrollbar{
+    width: 10px;
+}
+
+html::-webkit-scrollbar-button {
     display: none;
 }
+
+html::-webkit-scrollbar-track-piece {
+    background: #ffffff;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #0798ec;
+}​
 
 /*CUSTOM SCROLLBAR HORIZONTAL*/
 div::-webkit-scrollbar,
@@ -37,8 +49,6 @@ html {
 body{
     background: #ffffff;
 }
-
-
 
 /*JUMBOTRON*/ 
 .jumbotron{
@@ -309,7 +319,7 @@ footer{
 }
 
 article{
-    font-weight: 400;
+    font-weight: 300;
     font-size: 20px;
     text-align: left;
     margin-left: auto;
@@ -320,7 +330,7 @@ article{
 hr {
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 20px;
+    margin-bottom: 1px;
     margin-top: 10px;
     background-color: #dddddd;
     height: 1px;
@@ -333,8 +343,24 @@ hr {
     color: grey;
 }
 
-#content img{
+#content img {
     width: 100%;
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+#content a {
+    text-decoration: none;
+    color: #0798ec;
+}
+
+#content {
+    line-height: 30px;
+    word-spacing: 3px;
+    letter-spacing: .850px;
+}
+
+#content details {
+    margin-top: -10px;
 }
 
 .highlight div,
@@ -344,6 +370,10 @@ hr {
     border-radius: 5px;
     padding: 10px;
     background-color: #173549 !important;
+}
+h2 {
+    margin-top: 20px;
+    padding-bottom: 15px;
 }
 
 /*NOT-FOUND*/
@@ -402,7 +432,7 @@ hr {
     .menu-toggle-nav:checked ~ .menu-nav{
         clip-path: circle(75%);
     }
-    
+        
     .menu-nav{
         margin-top: 0;
         background-color: #ffffff;
@@ -527,6 +557,7 @@ hr {
 
     /*ARTICLE*/
     article{
+        padding-top: 50px;
         width: 85%;
         font-size: 17px;
     }
