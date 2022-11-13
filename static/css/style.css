@@ -343,23 +343,23 @@ hr {
     color: grey;
 }
 
-#content img {
+article img {
     width: 100%;
     padding-top: 15px;
     padding-bottom: 20px;
 }
-#content a {
+article a {
     text-decoration: none;
     color: #0798ec;
 }
 
-#content {
+article {
     line-height: 30px;
     word-spacing: 3px;
     letter-spacing: .850px;
 }
 
-#content details {
+article details {
     margin-top: -10px;
 }
 
