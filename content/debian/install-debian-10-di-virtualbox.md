@@ -146,6 +146,5 @@ Hal ini dilakukan agar Debian tidak menginstall paket Desktop Environment, agar 
 \
 46\. Jika muncul tampilan login seperti ini maka Debian berhasil diinstall :wink:. ![Tampilan Login Debian](/img/debian/1-installasidebian/48.png "Tampilan Login Debian")  
 \
-\
 Sekian dulu installasi Debian di Virtualbox.  
 Selamat mencoba :wave:.
