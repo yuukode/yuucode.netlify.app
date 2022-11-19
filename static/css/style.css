@@ -317,13 +317,15 @@ footer{
     padding-top: 100px;
     padding-bottom: 20px;
     text-align: center;
-    font-size: 35px;
-     
+    font-size: 45px;
+    line-height: normal;
+    word-spacing: normal;
+    letter-spacing: normal;
 }
 
 article{
-    font-weight: 400;
-    font-size: 20px;
+    font-weight: 300;
+    font-size: 18px;
     text-align: left;
     margin-left: auto;
     margin-right: auto;
@@ -348,6 +350,10 @@ hr {
     text-align: center;
     color: grey;
 }
+article ul li {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
 
 article img {
     width: 100%;
@@ -371,9 +377,13 @@ article details {
     padding: 10px;
     background-color: #173549 !important;
 }
-h2 {
-    margin-top: 20px;
+
+article h2 {
+    margin-top: 50px;
+    font-size: 30px;
     padding-bottom: 15px;
+    word-spacing: 0px;
+    letter-spacing: 0px;
 }
 
 /*NOT-FOUND*/

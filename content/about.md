@@ -12,9 +12,9 @@ Terima kasih sudah membuka halaman About website ini. Sesuai dengan judul, di ha
 \
 Gimana sih ceritanya awal website ini dibuat:question:  
 \
-Saya adalah seorang siswa SMK (Sekolah Menengah Kejuruan) bidang Teknik Komputer dan Jaringan.  
+Jadi ceritanya begini, saya adalah seorang siswa SMK (Sekolah Menengah Kejuruan) bidang Teknik Komputer dan Jaringan.  
 \
-Jadi ceritanya begini, biasanya saat mata pelajaran produktif setelah tugas praktek selanjutnya ditugaskan untuk membuat laporan praktek yang sebelumnya dilakukan.  
+Dan biasanya saat mata pelajaran produktif setelah tugas praktek selanjutnya ditugaskan untuk membuat laporan praktek yang sebelumnya dilakukan.  
 \
 Saya harus mengetik ulang yang dipelajari dari materi yang diberikan, lalu laporan dikumpulkan dalam bentuk file.  
 \
