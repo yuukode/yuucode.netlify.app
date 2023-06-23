@@ -1,7 +1,7 @@
 ---
 title: "OSI Dan TCP/IP Model"
 date: 2022-11-16T19:50:05+07:00
-draft: false
+draft: true
 ---
 
 ![OSI Dan TCP/IP Model](/img/networking/osi-tcpip-model/0.png "OSI Dan TCP/IP Model")
