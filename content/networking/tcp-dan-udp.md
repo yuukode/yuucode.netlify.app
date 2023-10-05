@@ -1,7 +1,7 @@
 ---
 title: "TCP Dan UDP"
 date: 2022-11-20T20:09:21+07:00
-draft: true
+draft: false
 ---
 ![TCP Dan UDP](/img/networking/tcp-dan-udp/0.png "TCP Dan UDP")
 
