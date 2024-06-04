@@ -47,20 +47,54 @@ html {
 }
 
 body{
-    background: #ffffff;
+    background: #fff;
 }
 
 /*JUMBOTRON*/ 
 .jumbotron{
-    background-color: #0798ec;
-    height: 100vh;
+    background: #0798ec;
+    height: 95vh;
+    position: relative;
+    z-index: -1;
+}
+.waves-bot{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: -7px;
+}
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
 }
 
 .title-home {
-    justify-content: center;
-    display: flex;
     text-align: center;
-    padding-top: 35vh;
+    padding-top: 20vh;
     color: #ffffff;
     font-size: 6em;
     font-weight: 700;  
@@ -69,7 +103,6 @@ body{
 
 .jum-note {
     text-align: center;
-    margin-top: 3vh;
     animation: fix 1s;
 }
 
@@ -99,10 +132,28 @@ body{
 }
 
 @keyframes moving {
-    0%{padding-top: 45vh;}
-    25%{padding-top: 45vh;}
-    50%{padding-top:35vh}
-    100%{padding-top: 35vh;}
+    0%{padding-top: 30vh;}
+    25%{padding-top: 30vh;}
+    50%{padding-top:20vh}
+    100%{padding-top: 20vh;}
+}
+
+.title{
+    margin-top: 1rem;
+}
+
+.person{
+    margin-top: 5rem;
+    width: 30rem;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.grid-item{
+    width: 100%
 }
 
 /*NAVBAR*/
@@ -120,21 +171,19 @@ body{
     left: 10%;
 }
 
-.icon-nav a{
-    padding: 14px 16px;
-    text-align: center;
-    text-decoration: none;
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 20px;
+.icon-nav img{
+    width: 40px;
+    height: 40px;
 }
 
-.icon-nav a:hover{
-    font-size: 21px;
+.icon-nav img:hover{
+    width: 50px;
+    height: 50px;
 }
 
-.icon-nav a:active{
-    font-size: 21px;
+.icon-nav img:active{
+    width: 50px;
+    height: 50px;
 }
 
 .menu-nav{
@@ -410,8 +459,31 @@ article h2 {
 @media screen and (max-width: 700px){
 
     /*JUMBOTRON*/
+
+    .jumbotron{
+        height: 75vh;
+    }
+
+    .grid-container{
+        grid-template-columns: auto;
+    }
+
+    .title{
+        padding-bottom: 10px
+    }
+
+    .person{
+        margin: auto;
+        width: 10rem;
+        animation: appear 4s;
+    }
+
     .text-drop {
         font-size: 5em;
+    }
+
+    .title-home{
+        font-size: 4em;
     }
 
     /*NAVBAR*/
@@ -429,7 +501,7 @@ article h2 {
         width: 60px;
         right: 20px;
         top:20px;
-        z-index: 2;
+        z-index: 99;
         position: fixed;
         border-radius: 50%;
         display: block;
@@ -444,11 +516,12 @@ article h2 {
     .menu-toggle-nav:checked ~ .menu-nav{
         clip-path: circle(75%);
     }
-        
+    
     .menu-nav{
         margin-top: 0;
         background-color: #ffffff;
         width: 100%;
+        z-index: 1;
         height: 100vh;
         right:0;
         top:0;
@@ -504,6 +577,7 @@ article h2 {
     /*BURGER MENU*/
     .burger-menu-nav{
         background-color: #ffffff;
+        z-index: 2;
         width: 60px;
         height: 60px;
         position: fixed;
@@ -605,6 +679,11 @@ article h2 {
 
 @media screen and (max-width: 400px) {
     .title-home {
-        font-size: 4.5em;
+        font-size: 2.5em;
+    }
+
+    .jum-note a{
+        font-size: 10px;
+        padding: 5px;
     }
 }
