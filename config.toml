@@ -1,6 +1,6 @@
-baseURL = 'https://yuucode.netlify.app'
+baseURL = 'https://yuukode.com'
 languageCode = 'id-id'
-title = 'yuucode'
+title = 'yuukode'
 
 enableEmoji = true
 pluralizelisttitles = false
