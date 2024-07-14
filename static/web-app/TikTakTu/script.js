@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const clickSound = new Audio('click.mp3');
     const winSound = new Audio('win.mp3');
 
-    clickSound.preload();
-    winSound.preload();
+    clickSound.preload = 'auto';
+    winSound.preload = 'auto';
 
 
     window.addEventListener('load', () => {
