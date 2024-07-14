@@ -10,9 +10,44 @@ body {
     animation: gradient 8s ease infinite;
 }
 
-#loading {
-    font-size: 24px;
-    color: #333;
+.loading {
+    font-size: 20px;
+    text-align: center;
+}
+
+#loading-text {
+    margin-top: 20px;
+}
+
+#loading-text:after {
+    content: '.';
+    -webkit-animation: loading 1s ease alternate infinite;
+            animation: loading 1s ease alternate infinite;
+}
+
+@-webkit-keyframes loading {
+    60% {
+        text-shadow: 0.35em 0 0 currentColor;
+    }
+    100% {
+        text-shadow: 0.35em 0 0 currentColor, 0.75em 0 0 currentColor;
+    }
+}
+
+@keyframes loading {
+    60% {
+        text-shadow: 0.35em 0 0 currentColor;
+    }
+    100% {
+        text-shadow: 0.35em 0 0 currentColor, 0.75em 0 0 currentColor;
+    }
+}
+
+#logo {
+    width: 100px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+    border-radius: 50%;
 }
 
 .hidden {

@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const loading = document.getElementById('loading');
     const container = document.querySelector('.container');
-    const clickSound = new Audio('click.mp3');
-    const winSound = new Audio('win.mp3');
+    const clickSound = new Audio('click.wav');
+    const winSound = new Audio('win.wav');
 
     clickSound.load();
     winSound.load();
@@ -58,7 +58,7 @@ function initializeGame(clickSound, winSound){
         clickedCell.classList.add(currentPlayer);
     
         playSound(clickSound);
-    
+
         checkResult();
     }
     
