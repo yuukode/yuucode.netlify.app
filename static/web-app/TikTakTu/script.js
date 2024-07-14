@@ -4,11 +4,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const clickSound = new Audio('click.wav');
     const winSound = new Audio('win.wav');
 
-    clickSound.load();
-    winSound.load();
+    function loadAudio(audio) {
+        return new Promise((resolve) => {
+            audio.oncanplaythrough = resolve;
+            audio.load();
+        });
+    }
 
-
-    window.addEventListener('load', () => {
+   window.addEventListener('load', async () => {
+        await Promise.all([
+            loadAudio(clickSound),
+            loadAudio(winSound),
+        ]);
         loading.classList.add('hidden');
         container.classList.remove('hidden');
 
