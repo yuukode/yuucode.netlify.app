@@ -1,25 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
     const loading = document.getElementById('loading');
     const container = document.querySelector('.container');
+    const clickSound = new Audio('click.mp3');
+    const winSound = new Audio('win.mp3');
 
-    // Setelah semua resource ter-load
     window.addEventListener('load', () => {
-        // Sembunyikan elemen loading
         loading.classList.add('hidden');
-        // Tampilkan kontainer permainan
         container.classList.remove('hidden');
 
-        initializeGame();
+        initializeGame(clickSound, winSound);
     });
 });
-function initializeGame(){
+function initializeGame(clickSound, winSound){
     const board = document.getElementById('board');
     const resetModalButton = document.getElementById('reset-modal');
     const modal = document.getElementById('modal');
     const modalMessage = document.getElementById('modal-message');
     const modalMessage1 = document.getElementById('modal-message1');
-    const clickSound = 'click.mp3';
-    const winSound = 'win.mp3';
     
     let boardState = [];
     let currentPlayer = 'X';
@@ -56,21 +53,20 @@ function initializeGame(){
         clickedCell.textContent = currentPlayer;
         clickedCell.classList.add(currentPlayer);
     
-        clicks();
+        playSound(clickSound);
     
         checkResult();
     }
     
-    function clicks() {
-        const audio = new Audio(clickSound);
-        audio.play();
+    function playSound(sound) {
+        sound.currentTime = 0; // Reset suara ke awal
+        sound.play();
     }
-    
+
     function wins() {
-        const audio = new Audio(winSound);
-        audio.play();
+        playSound(winSound);
     }
-    
+
     function highlightWinningCells(cells) {
         cells.forEach(index => {
             const cell = document.querySelector(`[data-index='${index}']`);
