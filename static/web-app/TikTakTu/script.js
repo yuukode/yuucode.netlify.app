@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const clickSound = new Audio('click.mp3');
     const winSound = new Audio('win.mp3');
 
+    clickSound.preload();
+    winSound.preload();
+
+
     window.addEventListener('load', () => {
         loading.classList.add('hidden');
         container.classList.remove('hidden');
