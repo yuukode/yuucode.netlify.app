@@ -3,7 +3,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
     margin: 0;
     background: linear-gradient(135deg, #e4c1f9, #f3d4e2);
     background-size: 200% 200%;
