@@ -177,12 +177,12 @@ body{
 }
 
 .icon-nav img:hover{
-    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 0 10px white);
     border-radius: 50%;
 }
 
 .icon-nav img:active{
-    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 0 10px white);
     border-radius: 50%;
 }
 
