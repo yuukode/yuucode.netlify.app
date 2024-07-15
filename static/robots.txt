@@ -1,4 +1,7 @@
 User-agent: *
-Disallow:
+
+Disallow: /tags/
+Disallow: /categories/
+Disallow: 404.html
 
 Sitemap: https://yuukode.com/sitemap.xml
