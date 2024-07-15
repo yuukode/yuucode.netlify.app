@@ -40,7 +40,7 @@ function initializeGame(clickSound, winSound){
         board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
         boardState = Array(size * size).fill(''); // Reset papan
     
-        for (let i = 0; i < size * size; i++) {
+        for (let i = 0; i < size * size; i+=2) {
             const cell = document.createElement('div');
             cell.classList.add('cell');
             cell.setAttribute('data-index', i);
