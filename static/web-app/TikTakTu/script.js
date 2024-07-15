@@ -152,7 +152,7 @@ function initializeGame(clickSound, winSound){
             resetModalButton.style.display= 'none';
             setTimeout(() => {
                 modal.style.display = 'none';
-                boardSize+2;
+                boardSize++;
                 createCells(boardSize);
                 isGameActive = true;
                 currentPlayer = 'X';
