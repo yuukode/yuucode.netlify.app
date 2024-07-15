@@ -2,7 +2,13 @@
     <title>{{ .Title }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <meta name="description" content="Temukan hal menarik tentang hasil belajar saya di kejuruan Teknik Komputer dan Jaringan.">
+    <meta name="description" content="Temukan hal menarik tentang Komputer dan Teknologi disini.">
+
     <meta name="google-adsense-account" content="ca-pub-2195182608601348">
+
+    {{ if or (ne .Kind "page") (and (eq .Kind "page") (eq .Params.sitemap_exclude true)) }}
+    <meta name="robots" content="all" />
+    {{ end }}
+
     <link rel="stylesheet" href="/css/style.css" />
 </head>

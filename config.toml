@@ -4,3 +4,8 @@ title = 'yuukode'
 
 enableEmoji = true
 pluralizelisttitles = false
+
+[sitemap]
+  changefreq = 'monthly'
+  filename = 'sitemap.xml'
+  priority = 0.5
