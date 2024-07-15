@@ -6,7 +6,7 @@ draft: false
 
 ![About](/img/about.png "About")
 
-Hai :wave:, Selamat datang di yuucode.  
+Hai :wave:, Selamat datang di yuukode.  
 \
 Terima kasih sudah membuka halaman About website ini. Sesuai dengan judul, di halaman ini saya akan menjelaskan tentang website ini.  
 \
