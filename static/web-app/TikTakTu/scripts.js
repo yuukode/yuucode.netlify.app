@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-   window.addEventListener('load', async () => {
+    window.addEventListener('load', async () => {
         await Promise.all([
             loadAudio(clickSound),
             loadAudio(winSound),
@@ -34,6 +34,7 @@ function initializeGame(clickSound, winSound){
     let currentPlayer = 'X';
     let isGameActive = true;
     let boardSize = 3; // Ukuran Awal
+    const winConditionLength = 3; // Garis kemenangan tetap 3
 
     function createCells(size) {
         board.innerHTML = ''; // Clear sel
@@ -88,7 +89,6 @@ function initializeGame(clickSound, winSound){
     function checkResult() {
         let roundWon = false;
         let winningCombination = [];
-        const winConditionLength = boardSize; // Update panjang win condition sesuai ukuran papan
 
         // Cek untuk setiap baris, kolom, dan diagonal
         for (let i = 0; i < boardSize; i++) {
@@ -132,7 +132,7 @@ function initializeGame(clickSound, winSound){
             wins();
             modalMessage.textContent = `Pemain ${currentPlayer} menang!🥳`;
             modalMessage1.style.display = "block";
-            modalMessage1.textContent = "Follow ig: yuukode"
+            modalMessage1.textContent = "Follow ig: yuukode";
             modal.style.display = 'block';
             resetModalButton.style.display = 'inline-block';
             return;
@@ -145,7 +145,7 @@ function initializeGame(clickSound, winSound){
             resetModalButton.style.display = 'none';
             setTimeout(() => {
                 modal.style.display = 'none';
-                boardSize++;
+                boardSize = boardSize + 2; // Tambah ukuran papan menjadi ganjil berikutnya
                 createCells(boardSize);
                 isGameActive = true;
                 currentPlayer = 'X';
@@ -159,7 +159,7 @@ function initializeGame(clickSound, winSound){
 
     function resetGame() {
         modal.style.display = 'none';
-        boardSize = 3;
+        boardSize = 3; // Reset ukuran papan kembali ke 3x3
         createCells(boardSize);
         isGameActive = true;
         currentPlayer = 'X';
