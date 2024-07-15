@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-function initializeGame(clickSound, winSound){
+function initializeGame(clickSound, winSound) {
     const board = document.getElementById('board');
     const resetModalButton = document.getElementById('reset-modal');
     const modal = document.getElementById('modal');
@@ -34,7 +34,13 @@ function initializeGame(clickSound, winSound){
     let currentPlayer = 'X';
     let isGameActive = true;
     let boardSize = 3; // Ukuran Awal
-    const winConditionLength = 3; // Garis kemenangan tetap 3
+
+    function getWinConditionLength(size) {
+        if (size === 3) return 3;
+        if (size === 5) return 4;
+        if (size === 7) return 6;
+        return 3; // Default untuk ukuran papan yang tidak ditentukan
+    }
 
     function createCells(size) {
         board.innerHTML = ''; // Clear sel
@@ -89,6 +95,7 @@ function initializeGame(clickSound, winSound){
     function checkResult() {
         let roundWon = false;
         let winningCombination = [];
+        const winConditionLength = getWinConditionLength(boardSize); // Update panjang win condition sesuai ukuran papan
 
         // Cek untuk setiap baris, kolom, dan diagonal
         for (let i = 0; i < boardSize; i++) {
@@ -96,12 +103,12 @@ function initializeGame(clickSound, winSound){
                 // Baris
                 if (boardState.slice(i * boardSize + j, i * boardSize + j + winConditionLength).every(cell => cell === currentPlayer)) {
                     roundWon = true;
-                    winningCombination = Array.from({length: winConditionLength}, (_, k) => i * boardSize + j + k);
+                    winningCombination = Array.from({ length: winConditionLength }, (_, k) => i * boardSize + j + k);
                 }
                 // Kolom
-                if (Array.from({length: winConditionLength}, (_, k) => boardState[(j + k) * boardSize + i]).every(cell => cell === currentPlayer)) {
+                if (Array.from({ length: winConditionLength }, (_, k) => boardState[(j + k) * boardSize + i]).every(cell => cell === currentPlayer)) {
                     roundWon = true;
-                    winningCombination = Array.from({length: winConditionLength}, (_, k) => (j + k) * boardSize + i);
+                    winningCombination = Array.from({ length: winConditionLength }, (_, k) => (j + k) * boardSize + i);
                 }
             }
         }
@@ -109,9 +116,9 @@ function initializeGame(clickSound, winSound){
         // Diagonal utama
         for (let i = 0; i <= boardSize - winConditionLength; i++) {
             for (let j = 0; j <= boardSize - winConditionLength; j++) {
-                if (Array.from({length: winConditionLength}, (_, k) => boardState[(i + k) * boardSize + (j + k)]).every(cell => cell === currentPlayer)) {
+                if (Array.from({ length: winConditionLength }, (_, k) => boardState[(i + k) * boardSize + (j + k)]).every(cell => cell === currentPlayer)) {
                     roundWon = true;
-                    winningCombination = Array.from({length: winConditionLength}, (_, k) => (i + k) * boardSize + (j + k));
+                    winningCombination = Array.from({ length: winConditionLength }, (_, k) => (i + k) * boardSize + (j + k));
                 }
             }
         }
@@ -119,9 +126,9 @@ function initializeGame(clickSound, winSound){
         // Diagonal sekunder
         for (let i = 0; i <= boardSize - winConditionLength; i++) {
             for (let j = winConditionLength - 1; j < boardSize; j++) {
-                if (Array.from({length: winConditionLength}, (_, k) => boardState[(i + k) * boardSize + (j - k)]).every(cell => cell === currentPlayer)) {
+                if (Array.from({ length: winConditionLength }, (_, k) => boardState[(i + k) * boardSize + (j - k)]).every(cell => cell === currentPlayer)) {
                     roundWon = true;
-                    winningCombination = Array.from({length: winConditionLength}, (_, k) => (i + k) * boardSize + (j - k));
+                    winningCombination = Array.from({ length: winConditionLength }, (_, k) => (i + k) * boardSize + (j - k));
                 }
             }
         }
