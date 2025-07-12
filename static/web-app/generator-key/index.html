@@ -2,80 +2,97 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🔐 ChillForce BTC Generator</title>
+  <title>🧊 ChillForce BTC Key Generator</title>
+  <style>
+    body {
+      font-family: monospace;
+      background: #111;
+      color: #0f0;
+      padding: 2rem;
+    }
+    button {
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+    }
+    pre {
+      background: #000;
+      padding: 1rem;
+      border: 1px solid #0f0;
+    }
+  </style>
 </head>
 <body>
   <h1>🚀 ChillForce BTC Generator</h1>
-  <button onclick="generate()">Generate</button>
-  <pre id="output">Klik tombol untuk generate address.</pre>
+  <button onclick="generate()">🔄 Generate</button>
+  <pre id="output">Klik tombol untuk generate address...</pre>
 
+  <!-- Load libraries -->
   <script src="https://cdn.jsdelivr.net/npm/elliptic@6.5.4/dist/elliptic.min.js"></script>
-  <script>
-    function generate() {
-      const EC = elliptic.ec;
-      const ec = new EC('secp256k1');
+  <script src="https://cdn.jsdelivr.net/npm/jssha@3.2.0/dist/sha.min.js"></script>
 
-      // Generate keypair
+  <script>
+    let EC;
+    let shaReady = false;
+
+    // Tunggu semua library siap
+    window.addEventListener("load", () => {
+      if (typeof elliptic !== 'undefined') {
+        EC = elliptic.ec;
+      }
+      if (typeof jsSHA !== 'undefined') {
+        shaReady = true;
+      }
+    });
+
+    async function generate() {
+      if (!EC || !shaReady) {
+        alert("⏳ Tunggu library selesai dimuat...");
+        return;
+      }
+
+      const ec = new EC('secp256k1');
       const key = ec.genKeyPair();
       const privKey = key.getPrivate('hex');
       const pubKey = key.getPublic(true, 'hex');
 
-      // Hash160 function (SHA256 + RIPEMD160)
-      async function hash160(hex) {
-        const bytes = Uint8Array.from(hex.match(/.{1,2}/g).map(b => parseInt(b, 16)));
-        const sha = await crypto.subtle.digest('SHA-256', bytes);
-        const shaArray = new Uint8Array(sha);
+      const p2pkh = await generateAddress(pubKey);
 
-        const ripemd160 = new jsSHA("RIPEMD-160", "UINT8ARRAY");
-        ripemd160.update(shaArray);
-        return ripemd160.getHash("HEX");
-      }
-
-      async function createP2PKH(pubKeyHex) {
-        const h160 = await hash160(pubKeyHex);
-        const version = '00' + h160;
-        const checksum = sha256x2(version).slice(0, 8);
-        const full = version + checksum;
-        return base58encode(hexToBytes(full));
-      }
-
-      function sha256x2(hex) {
-        const bytes = hexToBytes(hex);
-        const hash1 = sha256(bytes);
-        const hash2 = sha256(hash1);
-        return bytesToHex(hash2);
-      }
-
-      function sha256(bytes) {
-        return new Uint8Array(
-          crypto.subtle.digestSync ? crypto.subtle.digestSync('SHA-256', bytes)
-                                   : require('crypto').createHash('sha256').update(Buffer.from(bytes)).digest()
-        );
-      }
-
-      function hexToBytes(hex) {
-        return Uint8Array.from(hex.match(/.{1,2}/g).map(b => parseInt(b, 16)));
-      }
-
-      function bytesToHex(bytes) {
-        return Array.from(bytes).map(b => b.toString(16).padStart(2, '0')).join('');
-      }
-
-      const jsSHA_script = document.createElement('script');
-      jsSHA_script.src = "https://cdn.jsdelivr.net/npm/jssha/dist/sha.min.js";
-      jsSHA_script.onload = async () => {
-        const p2pkh = await createP2PKH(pubKey);
-
-        document.getElementById('output').textContent = `
+      document.getElementById('output').textContent = `
 🔑 Private Key (hex): ${privKey}
 📡 Public Key (compressed): ${pubKey}
 📬 Address (P2PKH): ${p2pkh}
 `.trim();
-      };
-      document.body.appendChild(jsSHA_script);
     }
 
-    // Simple base58 encoding
+    async function generateAddress(pubKeyHex) {
+      const bytes = hexToBytes(pubKeyHex);
+      const sha256 = await crypto.subtle.digest("SHA-256", bytes);
+      const ripemd160 = new jsSHA("RIPEMD-160", "UINT8ARRAY");
+      ripemd160.update(new Uint8Array(sha256));
+      const h160 = ripemd160.getHash("HEX");
+
+      const versioned = "00" + h160;
+      const checksum = await checksum4(versioned);
+      const full = versioned + checksum;
+      return base58encode(hexToBytes(full));
+    }
+
+    async function checksum4(hex) {
+      const first = await crypto.subtle.digest("SHA-256", hexToBytes(hex));
+      const second = await crypto.subtle.digest("SHA-256", new Uint8Array(first));
+      return bytesToHex(new Uint8Array(second)).slice(0, 8);
+    }
+
+    function hexToBytes(hex) {
+      return Uint8Array.from(hex.match(/.{1,2}/g).map(b => parseInt(b, 16)));
+    }
+
+    function bytesToHex(bytes) {
+      return Array.from(bytes).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
     const base58 = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
     function base58encode(buffer) {
       let x = BigInt('0x' + bytesToHex(buffer));
