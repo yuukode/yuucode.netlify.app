@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🔐 ChillForce BTC Generator</title>
+</head>
+<body>
+  <h1>🚀 ChillForce BTC Generator</h1>
+  <button onclick="generate()">Generate</button>
+  <pre id="output">Klik tombol untuk generate address.</pre>
+
+  <script src="https://cdn.jsdelivr.net/npm/elliptic@6.5.4/dist/elliptic.min.js"></script>
+  <script>
+    function generate() {
+      const EC = elliptic.ec;
+      const ec = new EC('secp256k1');
+
+      // Generate keypair
+      const key = ec.genKeyPair();
+      const privKey = key.getPrivate('hex');
+      const pubKey = key.getPublic(true, 'hex');
+
+      // Hash160 function (SHA256 + RIPEMD160)
+      async function hash160(hex) {
+        const bytes = Uint8Array.from(hex.match(/.{1,2}/g).map(b => parseInt(b, 16)));
+        const sha = await crypto.subtle.digest('SHA-256', bytes);
+        const shaArray = new Uint8Array(sha);
+
+        const ripemd160 = new jsSHA("RIPEMD-160", "UINT8ARRAY");
+        ripemd160.update(shaArray);
+        return ripemd160.getHash("HEX");
+      }
+
+      async function createP2PKH(pubKeyHex) {
+        const h160 = await hash160(pubKeyHex);
+        const version = '00' + h160;
+        const checksum = sha256x2(version).slice(0, 8);
+        const full = version + checksum;
+        return base58encode(hexToBytes(full));
+      }
+
+      function sha256x2(hex) {
+        const bytes = hexToBytes(hex);
+        const hash1 = sha256(bytes);
+        const hash2 = sha256(hash1);
+        return bytesToHex(hash2);
+      }
+
+      function sha256(bytes) {
+        return new Uint8Array(
+          crypto.subtle.digestSync ? crypto.subtle.digestSync('SHA-256', bytes)
+                                   : require('crypto').createHash('sha256').update(Buffer.from(bytes)).digest()
+        );
+      }
+
+      function hexToBytes(hex) {
+        return Uint8Array.from(hex.match(/.{1,2}/g).map(b => parseInt(b, 16)));
+      }
+
+      function bytesToHex(bytes) {
+        return Array.from(bytes).map(b => b.toString(16).padStart(2, '0')).join('');
+      }
+
+      const jsSHA_script = document.createElement('script');
+      jsSHA_script.src = "https://cdn.jsdelivr.net/npm/jssha/dist/sha.min.js";
+      jsSHA_script.onload = async () => {
+        const p2pkh = await createP2PKH(pubKey);
+
+        document.getElementById('output').textContent = `
+🔑 Private Key (hex): ${privKey}
+📡 Public Key (compressed): ${pubKey}
+📬 Address (P2PKH): ${p2pkh}
+`.trim();
+      };
+      document.body.appendChild(jsSHA_script);
+    }
+
+    // Simple base58 encoding
+    const base58 = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
+    function base58encode(buffer) {
+      let x = BigInt('0x' + bytesToHex(buffer));
+      let result = '';
+      while (x > 0) {
+        const mod = x % 58n;
+        result = base58[Number(mod)] + result;
+        x = x / 58n;
+      }
+      for (let byte of buffer) {
+        if (byte === 0x00) result = '1' + result;
+        else break;
+      }
+      return result;
+    }
+  </script>
+</body>
+</html>
